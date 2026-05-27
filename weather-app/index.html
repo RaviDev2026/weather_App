@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkyWatch — Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">SKYWATCH</span>
+      </div>
+      <div class="tagline">Real-time weather intelligence</div>
+    </header>
+
+    <!-- Search -->
+    <div class="search-wrap">
+      <div class="search-box">
+        <span class="search-icon">⊕</span>
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter city name..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="searchBtn">Search</button>
+      </div>
+      <div id="errorMsg" class="error-msg hidden">City not found. Try again.</div>
+    </div>
+
+    <!-- Loader -->
+    <div id="loader" class="loader hidden">
+      <div class="loader-ring"></div>
+      <p>Fetching weather data...</p>
+    </div>
+
+    <!-- Weather Card -->
+    <div id="weatherCard" class="weather-card hidden">
+      <!-- Top Section -->
+      <div class="card-top">
+        <div class="location-block">
+          <div class="city-name" id="cityName">—</div>
+          <div class="country" id="country">—</div>
+          <div class="date-time" id="dateTime">—</div>
+        </div>
+        <div class="temp-block">
+          <div class="temp-value" id="tempValue">—</div>
+          <div class="temp-unit">°C</div>
+        </div>
+      </div>
+
+      <!-- Weather Description -->
+      <div class="condition-row">
+        <img id="weatherIcon" src="" alt="weather icon" class="weather-icon" />
+        <div class="condition-text">
+          <div class="condition-main" id="conditionMain">—</div>
+          <div class="condition-desc" id="conditionDesc">—</div>
+        </div>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Feels Like</div>
+          <div class="stat-value" id="feelsLike">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Humidity</div>
+          <div class="stat-value" id="humidity">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Wind Speed</div>
+          <div class="stat-value" id="windSpeed">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Visibility</div>
+          <div class="stat-value" id="visibility">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Pressure</div>
+          <div class="stat-value" id="pressure">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Cloud Cover</div>
+          <div class="stat-value" id="clouds">—</div>
+        </div>
+      </div>
+
+      <!-- Sunrise / Sunset -->
+      <div class="sun-row">
+        <div class="sun-item">
+          <span class="sun-icon">↑</span>
+          <div>
+            <div class="sun-label">Sunrise</div>
+            <div class="sun-time" id="sunrise">—</div>
+          </div>
+        </div>
+        <div class="sun-divider"></div>
+        <div class="sun-item">
+          <span class="sun-icon">↓</span>
+          <div>
+            <div class="sun-label">Sunset</div>
+            <div class="sun-time" id="sunset">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Default Hint -->
+    <div id="defaultHint" class="default-hint">
+      <div class="hint-icon">◌</div>
+      <p>Search for any city to get live weather data</p>
+      <p class="hint-sub">Powered by OpenWeatherMap API</p>
+    </div>
+
+    <footer class="footer">
+      Built with Vanilla JS · OpenWeatherMap API
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
